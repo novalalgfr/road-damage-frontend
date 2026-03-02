@@ -1,26 +1,26 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+	--color-asphalt: #0a0a0a;
+	--color-construction-yellow: #ffcc00;
+	--color-danger-orange: #ff5500;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+	body {
+		@apply bg-[#0a0a0a] text-white antialiased overflow-x-hidden selection:bg-[#ffcc00] selection:text-black;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@layer utilities {
+	.shadow-brutal {
+		box-shadow: 8px 8px 0px 0px #ffcc00;
+	}
+	.shadow-brutal-hover {
+		box-shadow: 4px 4px 0px 0px #ffcc00;
+	}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	.bg-construction-tape {
+		background-image: repeating-linear-gradient(-45deg, #ffcc00, #ffcc00 20px, #000000 20px, #000000 40px);
+	}
 }
